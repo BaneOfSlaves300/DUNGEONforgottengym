@@ -1,7 +1,55 @@
-.reg-ent_table{
-    width: 500px;
-    margin: 0 auto;
-    background-color: #8478cb;
-    padding: 0 20px 20px 20px;
-    border: 5px solid #433d6f;
+.content-box {
+
+    height: available;
+
+    background-color: white;
+
+}
+
+.border-box {
+    padding: 20px;
+    background-color: white;
+    position: absolute;
+    left: 20%;
+    top: 10%;
+    width: 60%;
+    border: 3px solid black;
+}
+
+.body-box {
+    background-color: blueviolet;
+    height: 1000px;
+}
+
+body{
+    margin: 0;
+    height: available;
+}
+
+header {
+    border-bottom: 3px solid black;
+    height: 60px;
+}
+
+h2 {
+    margin-left: 50%;
+    margin-right: 50%;
+}
+
+h1 {
+    float: left;
+}
+
+
+
+#loginButton {
+    border-radius: 20px;
+    border: 4px solid darkmagenta;
+    background-color: darkmagenta;
+    color: white;
+}
+
+.logBtn{
+    float: right;
+    margin-top: 10px;
 }
