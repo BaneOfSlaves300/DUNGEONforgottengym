@@ -1,18 +1,24 @@
 import Homepage from "./routes/homepage.js";
 import Registration from './routes/Registration.js';
+
 import express from 'express';
 import bodyParser from 'body-parser';
 import path from 'path';
 
 import {renderFile} from "ejs";
 
-export default class Server extends Homepage{
+
+export default class Server extends Registration{
     constructor() {
         super();
         this.app = express();
         this.port = 3000;
         this.urlencodedParser = bodyParser.urlencoded({extended: false});
         this.__dirname = path.resolve();
+        this._homeResponse = {
+            title : "master",
+            message : "of the slaves"
+        };
     }
 
     setApp () {
@@ -35,7 +41,7 @@ export default class Server extends Homepage{
                 next();
             })
             .post(this.urlencodedParser, (req, res, next) => {
-                console.log(req.body.login);
+                console.log(req.body);
                 res.redirect('/');
                 next();
             });
@@ -48,7 +54,17 @@ export default class Server extends Homepage{
                 next();
             })
             .post(this.urlencodedParser, (req, res, next) => {
-                console.log('aaaaaaahhh');
+                console.log(req.body);
+                if (req.body.type = "mainForm") {
+                    let newUser = this.appendUser(req.body);
+                    console.log(newUser);
+                    if (!newUser){
+                        res.render('warningUserIsAlive');
+                    } else {
+                        res.redirect('/');
+                    }
+
+                }else res.redirect('/login');
                 next();
             })
     }
